@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Ajax Notes";
+}
+
+<div id="noteSection">
+
+@{
+
+    if(@ViewBag.notes.Count == 0)
+    {
+        <h4 id="emptyNotes">No notes to display!</h4>
+    }
+    foreach(Dictionary<string, object> note in @ViewBag.notes)
+        {
+            <h3>@note["title"]</h3>
+            <form action="/update_note/@note["id"]" method="POST">
+                <textarea id='@note["id"]' name="content">@note["content"]</textarea>
+                <input class="update" id='@note["id"]' type ="submit" value="Update">
+            </form>
+            <form action='/delete_note/@note["id"]' method="POST">
+                <input id='@note["id"]' type ="submit" value="Delete">
+            </form>
+        }
+}
+</div>
+<hr>
+<form action="/add_title" method="POST">
+    <input id="noteTitle" type="text" name="title" placeholder="Add a Title">
+    <input id="addTitle" type="submit" value="Add Note">
+</form>
+
+
+
+@section Scripts{
+<script>
+
+    $( document ).ready(function() {
+        console.log( "ready!" );
+    });
+
+    // $("textarea").on("blur", function(){
+    //     var updatedNoteText = $("#" + this.id).val();
+    //     console.log(updatedNoteText);
+    //     $.post("/update_note", {"content" : updatedNoteText , "id" : this.id}, function(res){
+    //         console.log(res);
+    //     });
+    // });
+
+
+    // $(document).on("blur", "textarea", function(){
+    //     var updatedNoteText = $("#" + this.id).val();
+    //     $.post("/update_note", { "id" : this.id, "note" : updatedNoteText }, function(res){
+    //         console.log(res);
+    //     }, "json");
+    // });
+
+    $(document).on("blur", "textarea", function(){
+        $.post("/update_note", function(res){
+            console.log(res);
+        });
+    });
+
+    $("#addTitle").click(function(){
+        console.log("clicked add");
+        $.post("/add_title", {"title" : $("#noteTitle").val()}, function(res){
+            var html = "<p>" + $(#noteTitle).val() + "</p><textarea id=" + res + "></textarea>";
+        $("#noteSection").prepend(html);
+        $("#emptyNotes").hide();
+        $("#newNote").val("");
+        }, "json");
+    });
+</script>
+}

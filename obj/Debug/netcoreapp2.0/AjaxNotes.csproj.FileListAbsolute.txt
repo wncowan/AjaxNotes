@@ -1,0 +1,10 @@
+/Users/wesleycowan/Desktop/DojoAssignments/netCore/AjaxNotes/bin/Debug/netcoreapp2.0/AjaxNotes.deps.json
+/Users/wesleycowan/Desktop/DojoAssignments/netCore/AjaxNotes/bin/Debug/netcoreapp2.0/AjaxNotes.runtimeconfig.json
+/Users/wesleycowan/Desktop/DojoAssignments/netCore/AjaxNotes/bin/Debug/netcoreapp2.0/AjaxNotes.runtimeconfig.dev.json
+/Users/wesleycowan/Desktop/DojoAssignments/netCore/AjaxNotes/bin/Debug/netcoreapp2.0/AjaxNotes.dll
+/Users/wesleycowan/Desktop/DojoAssignments/netCore/AjaxNotes/bin/Debug/netcoreapp2.0/AjaxNotes.pdb
+/Users/wesleycowan/Desktop/DojoAssignments/netCore/AjaxNotes/obj/Debug/netcoreapp2.0/AjaxNotes.csproj.CoreCompileInputs.cache
+/Users/wesleycowan/Desktop/DojoAssignments/netCore/AjaxNotes/obj/Debug/netcoreapp2.0/AjaxNotes.AssemblyInfoInputs.cache
+/Users/wesleycowan/Desktop/DojoAssignments/netCore/AjaxNotes/obj/Debug/netcoreapp2.0/AjaxNotes.AssemblyInfo.cs
+/Users/wesleycowan/Desktop/DojoAssignments/netCore/AjaxNotes/obj/Debug/netcoreapp2.0/AjaxNotes.dll
+/Users/wesleycowan/Desktop/DojoAssignments/netCore/AjaxNotes/obj/Debug/netcoreapp2.0/AjaxNotes.pdb
