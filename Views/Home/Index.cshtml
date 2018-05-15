@@ -13,10 +13,11 @@
     foreach(Dictionary<string, object> note in @ViewBag.notes)
         {
             <h3>@note["title"]</h3>
-            <form action="/update_note/@note["id"]" method="POST">
-                <textarea id='@note["id"]' name="content">@note["content"]</textarea>
-                <input class="update" id='@note["id"]' type ="submit" value="Update">
-            </form>
+            // <form action="/update_note/@note["id"]" method="POST">
+            //   
+            //     <input class="update" id='@note["id"]' type ="submit" value="Update">
+            // </form>
+            <textarea id='@note["id"]' name="content">@note["content"]</textarea>
             <form action='/delete_note/@note["id"]' method="POST">
                 <input id='@note["id"]' type ="submit" value="Delete">
             </form>
@@ -38,13 +39,14 @@
         console.log( "ready!" );
     });
 
-    // $("textarea").on("blur", function(){
-    //     var updatedNoteText = $("#" + this.id).val();
-    //     console.log(updatedNoteText);
-    //     $.post("/update_note", {"content" : updatedNoteText , "id" : this.id}, function(res){
-    //         console.log(res);
-    //     });
-    // });
+    $("textarea").on("blur", function(){
+        console.log('textarea that we blurred', this);
+        var updatedNoteText = $("#" + this.id).val();
+        //console.log(updatedNoteText);
+        $.post("/update_note", {"content" : updatedNoteText , "id" : this.id}, function(res){
+            console.log('result', res);
+        });
+    });
 
 
     // $(document).on("blur", "textarea", function(){
@@ -54,20 +56,22 @@
     //     }, "json");
     // });
 
-    $(document).on("blur", "textarea", function(){
-        $.post("/update_note", function(res){
-            console.log(res);
-        });
-    });
+    // $(document).on("blur", "textarea", function(){
+    //     console.log(this);
+    //     $.post("/update_note", function(res){
+    //         console.log(res);
+    //     });
+    // });
 
-    $("#addTitle").click(function(){
-        console.log("clicked add");
-        $.post("/add_title", {"title" : $("#noteTitle").val()}, function(res){
-            var html = "<p>" + $(#noteTitle).val() + "</p><textarea id=" + res + "></textarea>";
-        $("#noteSection").prepend(html);
-        $("#emptyNotes").hide();
-        $("#newNote").val("");
-        }, "json");
-    });
+    // $("#addTitle").click(function(){
+    //     console.log("clicked add");
+    //     $.post("/add_title", {"title" : $("#noteTitle").val()}, function(res){
+    //         //console.log('res', res);
+    //         //var html = "<p>" + $('#noteTitle').val() + "</p><textarea id=" + res + "></textarea>";
+    //         // $("#noteSection").prepend(html);
+    //         // $("#emptyNotes").hide();
+    //         // $("#newNote").val("");
+    //     }, "json");
+    // });
 </script>
 }

@@ -25,24 +25,16 @@ namespace AjaxNotes.Controllers
         public IActionResult AddNote(string title)
         {
             Console.WriteLine("entered add note");
+            
             string queryString = $"INSERT INTO notes (title, created_at, updated_at) VALUES ('{title}', NOW(), NOW())";
+            Console.WriteLine(queryString);
             DbConnector.Execute(queryString);
             return RedirectToAction("Index");
         }
             
 
-        // [HttpPost]
-        // [Route("/update_note")]
-        // public string UpdateNote(string content, string id)
-        // {
-        //     Console.WriteLine("entered updateNote");
-        //     string queryString = $"UPDATE notes SET (content, updated_at) = ('{content}', NOW()) WHERE id={id}";
-        //     DbConnector.Execute(queryString);
-        //     return "ok";
-        // }
-
         [HttpPost]
-        [Route("/update_note/{id}")]
+        [Route("/update_note")]
         public IActionResult UpdateNote(string content, string id)
         {
             Console.WriteLine("entered updateNote");
@@ -50,6 +42,16 @@ namespace AjaxNotes.Controllers
             DbConnector.Execute(queryString);
             return RedirectToAction("Index");
         }
+
+        // [HttpPost]
+        // [Route("/update_note/{id}")]
+        // public IActionResult UpdateNote(string content, string id)
+        // {
+        //     Console.WriteLine("entered updateNote");
+        //     string queryString = $"UPDATE notes SET content = '{content}',  updated_at = NOW() WHERE id={id};";
+        //     DbConnector.Execute(queryString);
+        //     return RedirectToAction("Index");
+        // }
 
         [HttpPost]
         [Route("/delete_note/{id}")]
